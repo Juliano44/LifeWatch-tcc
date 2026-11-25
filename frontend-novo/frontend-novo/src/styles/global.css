@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root,
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  /* Paleta da marca */
+  --navy: #06152D;
+  --blue: #269DDB;
+  --teal: #20D6C0;
+  --purple: #8861E8;
+  --white: #FFFFFF;
+  --gray-light: #F3F6FA;
+
+  /* Superfícies */
+  --bg-app: #F3F6FA;
+  --bg-card: #FFFFFF;
+  --bg-sidebar: #FFFFFF;
+  --bg-input: #FFFFFF;
+  --bg-subtle: #E9EEF5;
+  --bg-raised: #FFFFFF;
+
+  /* Texto */
+  --text-primary: #06152D;
+  --text-secondary: rgba(6, 21, 45, 0.68);
+  --text-tertiary: rgba(6, 21, 45, 0.52);
+  --text-link: #1A78AD;
+  --teal-text: #0E8F80;
+  --danger-text: #C4223F;
+  --on-accent: #06152D;
+
+  /* Linhas e estados */
+  --border-subtle: rgba(6, 21, 45, 0.08);
+  --border-input: rgba(6, 21, 45, 0.18);
+  --hover-bg: rgba(6, 21, 45, 0.05);
+  --hover-accent: rgba(38, 157, 219, 0.12);
+  --danger-bg: rgba(255, 59, 92, 0.1);
+  --selected-bg: #E1F1FA;
+  --selected-text: #17709F;
+  --overlay: rgba(6, 21, 45, 0.5);
+
+  /* Cores de destaque */
+  --accent-blue: #269DDB;
+  --accent-cyan: #20D6C0;
+  --accent-teal: #20D6C0;
+  --accent-purple: #8861E8;
+
+  /* Cores semânticas (categorias e alertas) */
+  --accent-pink: #FF5F9E;
+  --accent-red: #FF3B5C;
+  --accent-orange: #FF7A00;
+  --accent-green: #32C673;
+
+  --gradient-brand: linear-gradient(135deg, #20D6C0, #8861E8);
+  --gradient-action: linear-gradient(135deg, #20D6C0, #269DDB);
+  --gradient-avatar: linear-gradient(135deg, #269DDB, #8861E8);
+  --header-gradient: linear-gradient(120deg, #DDF0FA 0%, #DDF8F4 35%, #ECE6FC 70%, #F3F6FA 100%);
+
+  /* Sombras */
+  --shadow-card: 0 1px 2px rgba(6, 21, 45, 0.05), 0 8px 24px rgba(6, 21, 45, 0.07);
+  --shadow-card-hover: 0 2px 4px rgba(6, 21, 45, 0.06), 0 14px 32px rgba(6, 21, 45, 0.11);
+  --shadow-sidebar: 1px 0 0 rgba(6, 21, 45, 0.05);
+
+  /* Raios */
+  --radius-card: 22px;
+  --radius-pill: 999px;
+  --radius-sm: 12px;
+
+  /* Espaçamentos */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  --sidebar-width: 260px;
+  --sidebar-width-collapsed: 84px;
+
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ===== Modo escuro ===== */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg-app: #06152D;
+  --bg-card: #0C2146;
+  --bg-sidebar: #081A38;
+  --bg-input: #0A1C3C;
+  --bg-subtle: #0A1C3C;
+  --bg-raised: #16346A;
+
+  --text-primary: #F3F6FA;
+  --text-secondary: rgba(243, 246, 250, 0.72);
+  --text-tertiary: rgba(243, 246, 250, 0.52);
+  --text-link: #5CBDF0;
+  --teal-text: #20D6C0;
+  --danger-text: #FF8095;
+
+  --border-subtle: rgba(243, 246, 250, 0.09);
+  --border-input: rgba(243, 246, 250, 0.2);
+  --hover-bg: rgba(243, 246, 250, 0.07);
+  --hover-accent: rgba(38, 157, 219, 0.2);
+  --danger-bg: rgba(255, 59, 92, 0.16);
+  --selected-bg: rgba(38, 157, 219, 0.22);
+  --selected-text: #8AD3F5;
+  --overlay: rgba(2, 8, 20, 0.65);
+
+  --header-gradient: linear-gradient(
+    120deg,
+    rgba(38, 157, 219, 0.3) 0%,
+    rgba(32, 214, 192, 0.16) 38%,
+    rgba(136, 97, 232, 0.3) 100%
+  );
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 2px 4px rgba(0, 0, 0, 0.35), 0 14px 32px rgba(0, 0, 0, 0.4);
+  --shadow-sidebar: 1px 0 0 rgba(243, 246, 250, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-display);
+  background: var(--bg-app);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--selected-bg);
+}
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ===== Tela de login ===== */
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: var(--space-6);
+  background: var(--navy);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: var(--space-8);
+  background: var(--bg-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.login-logo {
+  display: block;
+  width: 120px;
+  margin: 0 auto var(--space-6);
+  border-radius: var(--radius-sm);
+}
+
+.login-page button[type="submit"] {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--gradient-brand);
+  color: var(--navy);
+  font-weight: 700;
+  cursor: pointer;
+}

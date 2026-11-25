@@ -1,0 +1,286 @@
+.sidebar {
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border-subtle);
+  padding: var(--space-5) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+  transition: width 0.25s ease;
+}
+
+.sidebar--collapsed {
+  width: var(--sidebar-width-collapsed);
+}
+
+.sidebar__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-2);
+}
+
+.sidebar__edit-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: none;
+  border: none;
+  color: var(--text-link);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  transition: background 0.15s ease;
+}
+
+.sidebar__edit-btn:hover {
+  background: var(--hover-accent);
+}
+
+.sidebar__collapse-btn {
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-1);
+  border-radius: var(--radius-sm);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.sidebar__collapse-btn:hover {
+  background: var(--hover-bg);
+  color: var(--text-primary);
+}
+
+.sidebar__close-mobile {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.sidebar__search {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  padding: 10px var(--space-4);
+}
+
+.sidebar--collapsed .sidebar__search {
+  justify-content: center;
+  padding: 10px;
+}
+
+.sidebar__search-icon {
+  color: var(--text-tertiary);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.sidebar__search input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  color: var(--text-primary);
+  width: 100%;
+}
+
+.sidebar__search input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px var(--space-3);
+  border-radius: var(--radius-sm);
+  text-align: left;
+  color: var(--text-primary);
+  font-size: 14.5px;
+  font-weight: 500;
+  transition: background 0.15s ease;
+}
+
+.sidebar--collapsed .sidebar__item {
+  justify-content: center;
+  padding: 10px;
+}
+
+.sidebar__item:hover {
+  background: var(--hover-bg);
+}
+
+.sidebar__item--selected {
+  background: var(--selected-bg);
+  color: var(--selected-text);
+}
+
+.sidebar__item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  width: 22px;
+}
+
+.sidebar__item-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar__section {
+  margin-top: var(--space-3);
+}
+
+.sidebar__section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-2) var(--space-3);
+  color: var(--text-secondary);
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sidebar--collapsed .sidebar__section-header {
+  justify-content: center;
+}
+
+.sidebar__section-caret {
+  font-size: 11px;
+  transition: transform 0.2s ease;
+}
+
+.sidebar__section-caret--closed {
+  transform: rotate(-90deg);
+}
+
+.sidebar__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sidebar__empty {
+  padding: var(--space-2) var(--space-3);
+  color: var(--text-tertiary);
+  font-size: 13px;
+}
+
+.sidebar-overlay {
+  display: none;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  :root {
+    --sidebar-width: 220px;
+  }
+}
+
+/* Mobile: sidebar vira menu lateral retrátil */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 60;
+    width: 78vw;
+    max-width: 300px;
+    height: 100dvh;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.25);
+  }
+
+  .sidebar--mobile-open {
+    transform: translateX(0);
+  }
+
+  .sidebar--collapsed {
+    width: 78vw;
+    max-width: 300px;
+  }
+
+  .sidebar--collapsed .sidebar__item,
+  .sidebar--collapsed .sidebar__search,
+  .sidebar--collapsed .sidebar__section-header {
+    justify-content: flex-start;
+    padding: 10px var(--space-3);
+  }
+
+  .sidebar--collapsed .sidebar__item-label,
+  .sidebar--collapsed .sidebar__search input {
+    display: inline;
+  }
+
+  .sidebar__collapse-btn {
+    display: none;
+  }
+
+  .sidebar__close-mobile {
+    display: flex;
+  }
+
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: var(--overlay);
+    z-index: 50;
+  }
+}
+
+/* ---------- Rodapé (Sair) ---------- */
+.sidebar__footer {
+  margin-top: auto;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.sidebar__logout {
+  color: var(--danger-text);
+}
+
+.sidebar__logout:hover {
+  background: var(--danger-bg);
+}

@@ -1,0 +1,225 @@
+.category-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* ---------- Cabeçalho ---------- */
+.category-page__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.category-page__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.category-page__title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.category-page__subtitle {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* ---------- Grid de indicadores ---------- */
+.category-page__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.cat-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-5);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.cat-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+.cat-card__label {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.cat-card__value {
+  margin: var(--space-2) 0 0;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.cat-card__hero-value {
+  margin: var(--space-2) 0 0;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.cat-card__hero-value small {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* ---------- Painéis (gráfico e registros) ---------- */
+.cat-panel {
+  background: var(--bg-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-5) var(--space-6);
+}
+
+.cat-panel__title {
+  margin: 0 0 var(--space-5);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* ---------- Gráfico de barras ---------- */
+.bar-chart__plot {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-3);
+}
+
+.bar-chart__col {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px;
+}
+
+.bar-chart__value {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.bar-chart__bar {
+  width: 100%;
+  max-width: 44px;
+  border-radius: 8px;
+  transition: opacity 0.2s ease;
+}
+
+.bar-chart__col:hover .bar-chart__bar {
+  opacity: 0.75;
+}
+
+.bar-chart__label {
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+/* ---------- Gráfico de linha ---------- */
+.line-chart__labels {
+  display: flex;
+  margin-top: var(--space-2);
+}
+
+.line-chart__labels span {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+.line-chart__labels strong {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+/* ---------- Registros ---------- */
+.cat-records {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cat-records__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.cat-records__item:last-child {
+  border-bottom: none;
+}
+
+.cat-records__date {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.cat-records__value {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: right;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 1024px) {
+  .category-page__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .category-page__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cat-panel {
+    padding: var(--space-4);
+  }
+
+  .bar-chart__plot {
+    gap: var(--space-2);
+  }
+
+  .cat-records__item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .cat-records__value {
+    text-align: left;
+  }
+}
